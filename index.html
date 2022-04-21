@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Declarative rendering -->
+    <div id="app1">
+      <p>{{message}}</p>
+    </div>
+
+    <div id="app2">
+      <span v-bind:title="message">
+        Passez votre souris sur moi pendant quelques secondes pour voir mon
+        titre lié dynamiquement !
+      </span>
+    </div>
+
+    <!-- Conditionnals and Loops -->
+    <div id="app3">
+      <span v-if="seen">You can see me</span>
+    </div>
+
+    <div id="app4">
+      <ol>
+        <li v-for="todo in todos">{{todo.text}}</li>
+      </ol>
+    </div>
+
+    <!-- Handling user input -->
+
+    <div id="app5">
+      <p>{{ message }}</p>
+      <button v-on:click="reverseMessage">Message retourné</button>
+    </div>
+
+    <div id="app6">
+      <p>{{ message }}</p>
+      <input v-model="message" />
+    </div>
+
+    <!-- Composing with components -->
+
+    <div id="app">
+      <ol>
+        <!-- Crée une instance du composant todo-item -->
+        <todo-item></todo-item>
+      </ol>
+    </div>
+
+    <div id="app7">
+      <ol>
+        <todo-item
+          v-for="item in groceryList"
+          v-bind:todo="item"
+          v-bind:key="item.id"
+        ></todo-item>
+      </ol>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
